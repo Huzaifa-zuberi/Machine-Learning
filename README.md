@@ -1,67 +1,42 @@
-# PulseDB — Music Streaming Platform
+# Machine Learning
+
+Machine learning projects and experiments.
+
+## Projects
+
+### PulseDB — Music Streaming Platform
 
 Full-stack database project: SQL Server backend + Python Flask API + browser dashboard.
 
-## Project Structure
-
-```
-PulseDB/
+\Machine-Learning/
 ├── backend/
 │   ├── app.py              # Flask REST API (6 endpoints)
 │   └── requirements.txt    # Python dependencies
 ├── database/
 │   └── project.sql         # SQL Server schema, data, queries & views
-├── frontend/
-│   └── index.html          # Single-page dashboard (calls the API)
-└── README.md
-```
+└── frontend/
+    └── index.html          # Single-page dashboard
+\
+### Setup
 
----
+**1. Database** — Run \database/project.sql\ in SQL Server Management Studio.
 
-## Setup
-
-### 1. Database
-
-1. Open **SQL Server Management Studio**
-2. Run `database/project.sql` to create the `PulseDB` database with all tables, seed data, queries, and views
-
-### 2. Backend API
-
-```bash
-cd PulseDB/backend
+**2. Backend API**
+\\ash
+cd backend
 pip install -r requirements.txt
 python app.py
-```
+\API starts at \http://localhost:5000\.
 
-The API starts at **http://localhost:5000**.
+**3. Frontend** — Open \rontend/index.html\ in a browser.
 
-If your SQL Server instance is not `localhost`, edit the `SERVER` variable in `app.py`.
+### API Endpoints
 
-### 3. Frontend
-
-Open `frontend/index.html` in any browser. It connects to the running API at `http://localhost:5000`.
-
----
-
-## API Endpoints
-
-| Method | Path | Description | SQL Ref |
-|--------|------|-------------|---------|
-| GET | `/api/songs` | All songs with artist & genre | Q1 |
-| GET | `/api/trending` | Top 5 most-streamed songs | Q2 |
-| GET | `/api/fans` | Users with 3+ streams | Q3 |
-| GET | `/api/users` | User list for dropdown | — |
-| GET | `/api/songs/list` | Song list for dropdown | — |
-| POST | `/api/stream` | Record a new stream | INSERT |
-
----
-
-## Dashboard Tabs
-
-| Tab | Description |
-|-----|-------------|
-| **Browse Library** | Table of all songs loaded from the database |
-| **Trending & Analytics** | Top 5 songs + power users with live counts |
-| **User Activity Simulator** | Record a stream via the API and watch rankings update in real time |
-"# Matchine-Learning" 
-"# Matchine-Learning" 
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | \/api/songs\ | All songs with artist & genre |
+| GET | \/api/trending\ | Top 5 most-streamed songs |
+| GET | \/api/fans\ | Users with 3+ streams |
+| GET | \/api/users\ | User list for dropdown |
+| GET | \/api/songs/list\ | Song list for dropdown |
+| POST | \/api/stream\ | Record a new stream |
